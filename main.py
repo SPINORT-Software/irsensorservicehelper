@@ -37,6 +37,7 @@ class IRSensorService:
             a, _ = l.capture()
             cv2.normalize(a, a, 0, 65535, cv2.NORM_MINMAX)
             np.right_shift(a, 8, a)
+            print(f"The thermal value is {np.uint8(a)}")
             self.send(np.uint8(a))  # send to kafka
 
     def send(self, thermal_value):
@@ -46,7 +47,7 @@ class IRSensorService:
         sample = {
             "type": "calibration",
             "data": {
-                "session": "978df625-0734-49e3-a84b-b684844a6907", # test session ID
+                "session": "f2cbf121-d0a8-4b5d-885b-59fd720605f9", # test session ID
                 "thermal": thermal_value
             }
         }
