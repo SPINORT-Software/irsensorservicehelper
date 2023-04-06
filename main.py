@@ -3,7 +3,7 @@ import os
 
 from dotenv import load_dotenv
 # from producer import KafkaProducer
-from configuration import get_config
+# from configuration import get_config
 import logging
 from configparser import ConfigParser
 
